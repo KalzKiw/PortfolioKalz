@@ -1,0 +1,113 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente pixelada */
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #121212;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #FFCC00;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #FFCC00;
+}
+
+.hero .btn {
+  background-color: #56a0d3;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Secciones */
+section {
+  padding: 60px 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* Tech Stack */
+.tech-stack ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-stack li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Project cards */
+.project-card {
+  background-color: #333;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card a {
+  color: #FFCC00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Contact Section */
+.contact ul {
+  display: flex;
+  gap: 15px;
+}
+
+.contact a {
+  color: #56a0d3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  text-align: center;
+  padding: 20px;
+}
+
+footer p {
+  font-size: 1rem;
+}
