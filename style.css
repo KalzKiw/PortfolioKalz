@@ -21,13 +21,27 @@ h2 {
 /* Hero section */
 .hero {
   height: 100vh;
-  background-color: #222;
+  background: linear-gradient(135deg, #00595f, #05a0ac);
+  background-size: 400% 200%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
   padding: 20px;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero h1 {
@@ -54,11 +68,25 @@ h2 {
 
 /* Secciones */
 section {
-  padding: 60px 20px;
-  margin-bottom: 50px;
+  padding: 60px 40px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
+.about p {
+  line-height: 50px;
+}
+.quote {
+  position: relative;
+  font-size: 15px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
+  color: #ffcc00;
+  text-align: center;
+  padding: 15px;
+  animation: flameFlicker 1s infinite alternate;
+}
 /* Tech Stack */
 .tech-stack ul {
   list-style: none;
@@ -73,7 +101,7 @@ section {
 /* Project cards */
 .project-card {
   background-color: #333;
-  padding: 20px;
+  padding: 50px;
   margin-bottom: 20px;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -93,12 +121,14 @@ section {
 .contact ul {
   display: flex;
   gap: 15px;
+  text-align: center;
 }
 
 .contact a {
   color: #56a0d3;
   text-decoration: none;
   font-weight: bold;
+  text-align: center;
 }
 
 /* Footer */
@@ -111,3 +141,37 @@ footer {
 footer p {
   font-size: 1rem;
 }
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.flip-btn {
+  display: inline-block;  
+  perspective: 1000px;
+}
+
+@keyframes flameFlicker {
+  0% {
+    text-shadow: 0 0 5px #ff6600, 0 0 10px #ff3300, 0 0 20px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 10px #ffaa00, 0 0 20px #ff6600, 0 0 30px #ff3300;
+  }
+}
+
+#name {
+  display: inline-block;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#name.hidden {
+  opacity: 0;
+  transform: scale(0.8); /* Reduce el tamaño mientras desaparece */
+}
+
+
+

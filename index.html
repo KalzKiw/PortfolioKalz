@@ -7,22 +7,29 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <!-- AOS Animation Library -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
+  <div id="particles-js"></div>
   <header class="hero" id="hero" data-aos="fade-down">
     <div class="hero-content">
-      <h1>¡Hola! Soy Alejandro</h1>
-      <p>Prefiero picar código que piedra 🧱💻</p>
-      <a href="#about" class="btn">Scroll para ver más</a>
+      <h1>¡Hola! Soy <span id="name">Alejandro</span></h1>
+      <p>Prefiero picar código que piedra ⛏️💻</p>
+      <section class="btn flip-btn" id= "btn" data-aos="flip-down">
+        <a href="#about" class="btn flip-btn">Scroll para ver más</a>
+      </div>
     </div>
   </header>
 
   <!-- About Me Section -->
   <section class="about" id="about" data-aos="fade-up">
     <h2>Sobre mí</h2>
-    <p>Soy un estudiante de Desarrollo de Aplicaciones Multiplataforma. Me apasiona la tecnología y la programación, con un enfoque hacia el frontend y el SEO. Me encanta combinar creatividad con código.</p>
+    <p>Estoy estudiando Desarrollo de Aplicaciones Multiplataforma y a la vez trabajo, pero en mis ratos libres me gusta sentarme a trastear y romper cosas, actualmente aprendiendo Java como main pero mientras tocando todos los palos posibles, me gustaría desarrollarme como full stack aunque también me interesa muchísimo la ciberseguridad.</p><br>
+
+    <blockquote class="quote" data-aos="zoom-in">
+      <p>"You either burn for your future or freeze in your past📜🔥"</p>
+    </blockquote>
   </section>
 
   <!-- Tech Stack Section -->
@@ -45,12 +52,10 @@
   </section>
 
   <!-- Projects Section -->
-  <section class="projects" id="pgit remote add origin https://github.com/KalzKiw/PortfolioKalz.git
-  git branch -M main
-  git push -u origin mainojects" data-aos="fade-up">
+  <section class="projects" id="projects" data-aos="fade-up">
     <h2>Mis Proyectos</h2>
     <div class="project-card">
-      <h3>Proyecto 1</h3>
+      <h3>GestorGastos</h3>
       <p>Descripción breve de mi primer proyecto.</p>
       <a href="#">Ver Proyecto</a>
     </div>
@@ -66,8 +71,8 @@
     <h2>Contacto</h2>
     <p>Si quieres saber más sobre mí o colaborar, puedes contactarme a través de mis redes.</p>
     <ul>
-      <li><a href="https://www.linkedin.com/in/alejandrosilvaa/" target="_blank">LinkedIn</a></li>
-      <li><a href="https://github.com/KalzKiw" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/alejandrosilvaa/" target="_blank">LinkedIn⛓️‍💥</a></li>
+      <li><a href="https://github.com/KalzKiw" target="_blank">GitHub🐈</a></li>
     </ul>
   </section>
 
@@ -77,9 +82,61 @@
   </footer>
 
   <!-- AOS Animation Script -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("particles-js", {
+    particles: {
+      number: {
+        value: 100,
+      },
+      shape: {
+        type: "circle", 
+      },
+      color: {
+        value: "#ffff",
+      },
+      opacity: {
+        value: 0.5,
+      },
+      size: {
+        value: 3,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: true,
+        straight: false,
+        outMode: "out",
+      },
+    },
+    preset: "stars",  // Aquí indicas el preset "stars"
+  });
+</script>
+<script>
+const nameElement = document.getElementById('name');
+const names = ['Alejandro', 'Kalz'];
+let currentIndex = 0;
+
+setInterval(() => {
+  // Añade la clase 'hidden' para iniciar la animación de salida
+  nameElement.classList.add('hidden');
+
+  // Cambia el texto después de que termine la animación de salida (500ms)
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % names.length; // Alterna entre los nombres
+    nameElement.textContent = names[currentIndex];
+
+    // Quita la clase 'hidden' para mostrar el nuevo texto
+    nameElement.classList.remove('hidden');
+  }, 500); // Este tiempo debe coincidir con la duración de la animación en CSS
+}, 2000); // Cambia el nombre cada 2 segundos
+</script>
+
+
 </body>
 </html>
