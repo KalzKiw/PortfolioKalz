@@ -6,52 +6,103 @@
   <title>Portfolio - Alejandro</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <!-- AOS Animation Library -->
+  <!-- AOS libreria de animaciones -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    .tech-stack ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+      justify-content: center; /* Centra los elementos horizontalmente */
+      gap: 20px; /* Espaciado entre los elementos */
+    }
+
+    .tech-stack li {
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column; /* Coloca el icono encima del texto */
+      align-items: center; /* Centra el contenido */
+      gap: 10px; /* Espaciado entre el icono y el texto */
+    }
+
+    .tech-stack .icon {
+      width: 50px; /* Tamaño del icono */
+      height: auto; /* Mantén la proporción del icono */
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
-  <div id="particles-js"></div>
   <header class="hero" id="hero" data-aos="fade-down">
     <div class="hero-content">
       <h1>¡Hola! Soy <span id="name">Alejandro</span></h1>
       <p>Prefiero picar código que piedra ⛏️💻</p>
-      <section class="btn flip-btn" id= "btn" data-aos="flip-down">
+      <section id="btn" data-aos="flip-down">
         <a href="#about" class="btn flip-btn">Scroll para ver más</a>
-      </div>
+      </section>
+    </div>
+    <div id="particles-js"></div>
+
+    <!-- Botones de LinkedIn y GitHub -->
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/alejandrosilvaa/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="icon"> LinkedIn
+      </a>
+      <a href="https://github.com/KalzKiw" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="icon"> GitHub
+      </a>
+      <a href="https://steamcommunity.com/profiles/76561198180082957/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/steam.svg" alt="Steam" class="icon"> Steam
+      </a>
     </div>
   </header>
 
-  <!-- About Me Section -->
+  <!-- Sobre mi  -->
   <section class="about" id="about" data-aos="fade-up">
-    <h2>Sobre mí</h2>
-    <p>Estoy estudiando Desarrollo de Aplicaciones Multiplataforma y a la vez trabajo, pero en mis ratos libres me gusta sentarme a trastear y romper cosas, actualmente aprendiendo Java como main pero mientras tocando todos los palos posibles, me gustaría desarrollarme como full stack aunque también me interesa muchísimo la ciberseguridad.</p><br>
+    <div class="about-container">
+      <!-- Columna izquierda: Sobre mí -->
+      <div class="about-left">
+        <h2>Sobre mí</h2>
+        <p>Estoy estudiando Desarrollo de Aplicaciones Multiplataforma y a la vez trabajo, pero en mis ratos libres me gusta sentarme a trastear y romper cosas, actualmente aprendiendo Java como main pero mientras tocando todos los palos posibles, me gustaría desarrollarme como full stack aunque también me interesa muchísimo la ciberseguridad.</p>
+      </div>
 
-    <blockquote class="quote" data-aos="zoom-in">
+      <!-- Columna derecha: Intereses-->
+      <div class="about-right">
+        <h2>Intereses</h2>
+        <ul>
+          <li>Videojuegos 🎮</li>
+          <li>Ciberseguridad 🔒</li>
+          <li>Desarrollo Full Stack 💻</li>
+          <li>Fotografía 📸</li>
+          <li>Lectura 📚</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Frase -->
+    <blockquote class="quote" data-aos="fade-up">
       <p>"You either burn for your future or freeze in your past📜🔥"</p>
     </blockquote>
   </section>
 
-  <!-- Tech Stack Section -->
-  <section class="tech-stack" id="tech-stack" data-aos="fade-left">
+  <!-- Tech Stack -->
+  <section class="tech-stack" id="tech-stack" data-aos="fade-up">
     <h2>Tech Stack</h2>
     <ul>
-      <li>Java☕</li>
-      <li>PhP🪢</li>
-      <li>Python🐍</li>
-      <li>JavaScript</li>
-      <li>HTML5🖥️</li>
-      <li>CSS3🎨</li>
-      <li>PostgreSQL🐘</li>
-      <li>Git🐈‍⬛</li>
-      <li>Arch Linux 🐧</li>
-      <li>Photoshop🖼️</li>
-      <li>Ilustrator🖌️</li>
-
+      <li><img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java" class="icon"> Java</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="icon"> Python</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP" class="icon"> PHP</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="icon"> JavaScript</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML" class="icon"> HTML</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS" class="icon"> CSS</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL" class="icon"> PostgreSQL</li>
+      <li><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB" class="icon"> MongoDB</li>
+      <li><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git" class="icon"> Git</li>
     </ul>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section class="projects" id="projects" data-aos="fade-up">
     <h2>Mis Proyectos</h2>
     <div class="project-card">
@@ -66,22 +117,12 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact" data-aos="fade-right">
-    <h2>Contacto</h2>
-    <p>Si quieres saber más sobre mí o colaborar, puedes contactarme a través de mis redes.</p>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/alejandrosilvaa/" target="_blank">LinkedIn⛓️‍💥</a></li>
-      <li><a href="https://github.com/KalzKiw" target="_blank">GitHub🐈</a></li>
-    </ul>
-  </section>
-
   <!-- Footer -->
-  <footer data-aos="fade-up">
+  <footer>
     <p>© 2025 Alejandro Kalz. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- AOS Animation Script -->
+  <!-- AOS Ascripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -114,7 +155,7 @@
         outMode: "out",
       },
     },
-    preset: "stars",  // Aquí indicas el preset "stars"
+    preset: "stars",  
   });
 </script>
 <script>
@@ -123,18 +164,35 @@ const names = ['Alejandro', 'Kalz'];
 let currentIndex = 0;
 
 setInterval(() => {
-  // Añade la clase 'hidden' para iniciar la animación de salida
-  nameElement.classList.add('hidden');
+  
+  nameElement.classList.add('flipping');
 
-  // Cambia el texto después de que termine la animación de salida (500ms)
+  
   setTimeout(() => {
-    currentIndex = (currentIndex + 1) % names.length; // Alterna entre los nombres
+    currentIndex = (currentIndex + 1) % names.length; 
     nameElement.textContent = names[currentIndex];
 
-    // Quita la clase 'hidden' para mostrar el nuevo texto
-    nameElement.classList.remove('hidden');
-  }, 500); // Este tiempo debe coincidir con la duración de la animación en CSS
-}, 2000); // Cambia el nombre cada 2 segundos
+    // Cambia el color si es "Kalz"
+    if (names[currentIndex] === 'Kalz') {
+      nameElement.classList.add('kalz');
+    } else {
+      nameElement.classList.remove('kalz');
+    }
+  }, 300); // Cambia el texto a mitad del giro (300ms)
+
+  // Quita la clase 'flipping' después de que termine el giro completo
+  setTimeout(() => {
+    nameElement.classList.remove('flipping');
+  }, 600); // Este tiempo debe coincidir con la duración de la animación en CSS
+}, 4500); // Cambia el nombre cada 4 segundos
+</script>
+<script>
+document.querySelector('#btn a').addEventListener('click', function (e) {
+  e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+  document.querySelector('#about').scrollIntoView({
+    behavior: 'smooth' // Desplazamiento suave
+  });
+})
 </script>
 
 

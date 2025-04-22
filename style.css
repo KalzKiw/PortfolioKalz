@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Fuente pixelada */
 body {
   font-family: 'Press Start 2P', cursive;
@@ -20,6 +24,7 @@ h2 {
 
 /* Hero section */
 .hero {
+  position: relative; /* Asegura que los elementos hijos puedan usar posicionamiento absoluto */
   height: 100vh;
   background: linear-gradient(135deg, #00595f, #05a0ac);
   background-size: 400% 200%;
@@ -48,15 +53,19 @@ h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #FFCC00;
+  z-index: 1;
 }
 
 .hero p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #FFCC00;
+  z-index: 1;
 }
 
 .hero .btn {
+  position: relative;
+  z-index: 5; /* Asegúrate de que esté encima del fondo */
   background-color: #56a0d3;
   color: #fff;
   text-decoration: none;
@@ -64,6 +73,11 @@ h2 {
   border-radius: 5px;
   font-size: 1.2rem;
   font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #3b8bbd; /* Cambia el color al pasar el cursor */
 }
 
 /* Secciones */
@@ -76,9 +90,46 @@ section {
 .about p {
   line-height: 50px;
 }
+
+.about-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre las columnas */
+  align-items: stretch; /* Asegura que ambas columnas tengan la misma altura */
+  gap: 20px; /* Espaciado entre las columnas */
+  margin-bottom: 20px;
+}
+
+.about-left,
+.about-right {
+  flex: 1; /* Ambas columnas ocupan el mismo espacio */
+  padding: 20px;
+  background-color: #424242; /* Fondo gris */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+}
+
+.about-left {
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.about-right {
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.about-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-right li {
+  margin-bottom: 20px;
+  
+}
+
 .quote {
   position: relative;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 20px;
   text-transform: uppercase;
   font-family: 'Press Start 2P', cursive;
@@ -87,6 +138,15 @@ section {
   padding: 15px;
   animation: flameFlicker 1s infinite alternate;
 }
+
+.quote {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #ffcc00;
+  font-family: 'Press Start 2P', cursive;
+}
+
 /* Tech Stack */
 .tech-stack ul {
   list-style: none;
@@ -96,6 +156,14 @@ section {
 .tech-stack li {
   font-size: 1.2rem;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre el icono y el texto */
+}
+
+.tech-stack .icon {
+  width: 25px; /* Tamaño del icono */
+  height: 25px;
 }
 
 /* Project cards */
@@ -117,25 +185,15 @@ section {
   font-weight: bold;
 }
 
-/* Contact Section */
-.contact ul {
-  display: flex;
-  gap: 15px;
-  text-align: center;
-}
-
-.contact a {
-  color: #56a0d3;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-}
-
 /* Footer */
 footer {
-  background-color: #222;
+  position: relative; /* Asegúrate de que no esté fijo ni absoluto */
+  z-index: 1; /* Asegúrate de que esté por encima de otros elementos */
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
   text-align: center;
   padding: 20px;
+  margin-top: 20px; /* Espaciado desde el contenido anterior */
 }
 
 footer p {
@@ -146,7 +204,8 @@ footer p {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: -1; /* Asegúrate de que esté detrás de todo */
+  overflow: hidden; /* Evita que cause scroll adicional */
 }
 
 .flip-btn {
@@ -165,12 +224,225 @@ footer p {
 
 #name {
   display: inline-block;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: transform 0.6s ease, color 0.6s ease;
+  transform-origin: center; 
+}
+
+#name.flipping {
+  transform: rotateY(360deg); 
+}
+
+#name.kalz {
+  color: #ffffff; 
+  border-color: 1px, #121212;
+  animation: flameFlicker 1s infinite alternate;
 }
 
 #name.hidden {
   opacity: 0;
-  transform: scale(0.8); /* Reduce el tamaño mientras desaparece */
+  transform: scale(0.8);
+}
+
+#btn {
+  perspective: 1000px; 
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* Apila las columnas verticalmente */
+    align-items: center; /* Centra las columnas */
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%; /* Ocupan todo el ancho */
+    text-align: center; /* Centra el texto */
+  }
+}
+
+.social-links {
+  position: absolute;
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde la parte derecha */
+  display: flex;
+  flex-direction: column; /* Coloca los enlaces en columna */
+  gap: 10px; /* Espaciado entre los enlaces */
+  z-index: 5; /* Asegúrate de que estén encima del fondo */
+}
+
+.social-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: #424242;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre el icono y el texto */
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px); /* Salta hacia arriba */
+  background-color: #56a0d3; /* Cambia el fondo al pasar el cursor */
+}
+
+.social-links a:nth-child(3) {
+  background-color: #171a21; /* Fondo oscuro de Steam */
+}
+
+.social-links a:nth-child(3):hover {
+  background-color: #1b2838; /* Fondo más claro al pasar el cursor */
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanlines 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.social-links a::before,
+.social-links a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #56a0d3;
+  opacity: 0.1;
+  z-index: -1;
+  mix-blend-mode: multiply;
+  animation: glitch 1s infinite;
+}
+
+.social-links a::after {
+  animation-delay: 0.2s;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.social-links a:hover {
+  box-shadow: 0 0 10px #56a0d3, 0 0 20px #56a0d3; /* Aumenta el brillo al pasar el cursor */
+  background-color: #56a0d3; /* Cambia el fondo */
+}
+
+.social-links .icon {
+  width: 20px; /* Tamaño del icono */
+  height: 20px;
+  filter: invert(1); /* Cambia el color del icono a blanco */
+}
+
+.btn.flip-btn {
+  position: relative;
+  z-index: 5; /* Asegúrate de que esté encima del fondo */
+  background-color: #56a0d3;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  animation: rotate-down 2s infinite ease-in-out; /* Animación de giro hacia abajo */
+}
+
+.btn.flip-btn:hover {
+  background-color: #3b8bbd; /* Cambia el color al pasar el cursor */
+}
+
+/* Animación de giro hacia abajo */
+@keyframes rotate-down {
+  0% {
+    transform: rotateX(0); /* Posición inicial */
+  }
+  50% {
+    transform: rotateX(25deg); /* Gira hacia abajo */
+  }
+  100% {
+    transform: rotateX(0); /* Vuelve a la posición inicial */
+  }
+}
+
+/* Animación de flotación */
+@keyframes float {
+  0% {
+    transform: translateY(0); /* Posición inicial */
+  }
+  50% {
+    transform: translateY(-10px); /* Sube ligeramente */
+  }
+  100% {
+    transform: translateY(0); /* Vuelve a la posición inicial */
+  }
+}
+
+@keyframes float-dynamic {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-5px, -10px) rotate(-5deg);
+  }
+  50% {
+    transform: translate(5px, 0) rotate(5deg);
+  }
+  75% {
+    transform: translate(-5px, 10px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Posición inicial */
+  }
+  50% {
+    transform: translateY(-10px); /* Salta hacia arriba */
+  }
 }
 
 
