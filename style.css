@@ -13,6 +13,9 @@ body {
   background-color: #121212;
   color: #fff;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
 }
 
 h2 {
@@ -240,6 +243,45 @@ section {
   transform: rotate(10deg);
 }
 
+.tech-stack-container {
+  overflow: hidden; /* Oculta el contenido que se desborda */
+  white-space: nowrap; /* Evita que los elementos se envuelvan */
+  position: relative;
+}
+
+.tech-stack-container ul {
+  display: flex; /* Alinea los elementos en una fila */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 30px; /* Espaciado entre los elementos */
+  animation: none; /* Elimina cualquier animación */
+}
+
+.tech-stack-container .icon {
+  width: 50px;
+  height: auto;
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0); /* Comienza desde la posición inicial */
+  }
+  100% {
+    transform: translateX(-50%); /* Desplaza la mitad del contenido (ya que está duplicado) */
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-stack-container {
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos móviles */
+  }
+
+  .tech-stack-container ul {
+    display: flex; /* Mantén los elementos alineados en una fila */
+    justify-content: center; /* Centra los elementos */
+    gap: 30px; /* Espaciado entre los elementos */
+    animation: none; /* Asegúrate de que no haya animación */
+  }
+}
 
 .projects-container {
   display: flex;
@@ -417,15 +459,7 @@ footer p {
   align-items: center;
   gap: 10px;
   transition: transform 0.2s ease, background-color 0.3s ease;
-}
 
-.social-links a:hover {
-  transform: translateY(-5px);
-  background-color: #56a0d3; 
-}
-
-.social-links a:nth-child(3) {
-  background-color: #171a21;
 }
 
 social-links a::before {
@@ -442,7 +476,6 @@ social-links a::before {
     transparent 1px,
     transparent 3px
   );
-  animation: scanlines 1s linear infinite;
   z-index: 1;
 }
 
@@ -646,6 +679,30 @@ social-links a::before {
     text-shadow: 0 0 10px #ffaa00, 0 0 20px #ff6600, 0 0 30px #ff3300;
   }
 }
+
+#scroll-btn {
+  display: inline-block;
+  transition: transform 0.6s ease, color 0.6s ease;
+  transform-origin: center;
+}
+
+#scroll-btn.flipping {
+  transform: translateY(20px); 
+}
+
+#scroll-btn:hover {
+  color: #56a0d3;
+}
+
+  .tech-stack-container ul {
+    display: flex; /* Mantén los elementos alineados en una fila */
+    justify-content: center; /* Centra los elementos */
+    gap: 30px; /* Espaciado entre los elementos */
+    animation: none; /* Asegúrate de que no haya animación */
+  }
+
+
+
 
 
 
