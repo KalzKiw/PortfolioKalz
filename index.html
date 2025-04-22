@@ -10,7 +10,6 @@
   <link rel="icon" href="Image/icon.png" type="image/png">
 </head>
 <body>
-  <!-- Header -->
   <header class="hero" id="hero" data-aos="fade-down">
     <div class="hero-content">
       <h1>¡Hola! Soy <span id="name">Alejandro</span></h1>
@@ -20,8 +19,6 @@
       </section>
     </div>
     <div id="particles-js"></div>
-
-    <!-- Botones de LinkedIn y GitHub -->
     <div class="social-links">
       <a href="https://www.linkedin.com/in/alejandrosilvaa/" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="icon"> LinkedIn
@@ -34,8 +31,6 @@
       </a>
     </div>
   </header>
-
-  <!-- Sobre mi  -->
   <section class="about" id="about" data-aos="fade-up">
     <div class="about-container">
       <div class="about-left">
@@ -69,14 +64,9 @@
       </div>
     </div>
   </section>
-
-    <!-- Frase -->
-    <blockquote class="quote" data-aos="fade-up">
-      <p>"You either burn for your future or freeze in your past📜🔥"</p>
-    </blockquote>
-  </section>
-
-  <!-- Tech Stack -->
+  <blockquote class="quote" data-aos="fade-up">
+    <p>"You either burn for your future or <span id="frz">freeze in your past📜🔥"</span></span></p>
+  </blockquote>
   <section class="tech-stack" id="tech-stack" data-aos="fade-up">
     <h2>Tech Stack</h2>
     <ul>
@@ -91,8 +81,6 @@
       <li><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg" alt="Git" class="icon"> Git</li>
     </ul>
   </section>
-
-  <!-- Projects -->
   <section class="projects" id="projects" data-aos="fade-up">
     <h2>Mis Proyectos</h2>
     <div class="projects-container">
@@ -104,19 +92,14 @@
           </p>
         </div>
       </a>
-
     </div>
   </section>
-
-  <!-- Footer -->
   <footer>
     <a href="#hero" class="footer-logo">
       <img src="Image/icon.png"  class="icon">
     </a>
     <p>© 2025 Alejandro Kalz. Todos los derechos reservados.</p>
   </footer>
-
-  <!-- AOS Ascripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -146,47 +129,8 @@
         direction: "none",
         random: true,
         straight: false,
-        outMode: "out",
       },
     },
     preset: "stars",  
   });
 </script>
-<script>
-const nameElement = document.getElementById('name');
-const names = ['Alejandro', 'Kalz'];
-let currentIndex = 0;
-
-setInterval(() => {
-  
-  nameElement.classList.add('flipping');
-
-  
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % names.length; 
-    nameElement.textContent = names[currentIndex];
-
-    // Cambia el color si es "Kalz"
-    if (names[currentIndex] === 'Kalz') {
-      nameElement.classList.add('kalz');
-    } else {
-      nameElement.classList.remove('kalz');
-    }
-  }, 300); // Cambia el texto a mitad del giro (300ms)
-
-  // Quita la clase 'flipping' después de que termine el giro completo
-  setTimeout(() => {
-    nameElement.classList.remove('flipping');
-  }, 600); // Este tiempo debe coincidir con la duración de la animación en CSS
-}, 4500); // Cambia el nombre cada 4 segundos
-</script>
-<script>
-document.querySelector('#btn a').addEventListener('click', function (e) {
-  e.preventDefault(); // Evita el comportamiento predeterminado del enlace
-  document.querySelector('#about').scrollIntoView({
-    behavior: 'smooth' // Desplazamiento suave
-  });
-})
-</script>
-</body>
-</html>
