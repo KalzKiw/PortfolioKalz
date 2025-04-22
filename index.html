@@ -65,7 +65,11 @@
     </div>
   </section>
   <blockquote class="quote" data-aos="fade-up">
-    <p>"You either burn for your future or <span id="frz">freeze in your past📜🔥"</span></span></p>
+    <p>
+      "You either burn for your future or 
+      <span class="freeze">freeze in your past</span>
+      📜🔥"</span>
+    </p>
   </blockquote>
   <section class="tech-stack" id="tech-stack" data-aos="fade-up">
     <h2>Tech Stack</h2>
@@ -134,3 +138,26 @@
     preset: "stars",  
   });
 </script>
+<script>
+const nameElement = document.getElementById('name');
+const names = ['Alejandro', 'Kalz'];
+let currentIndex = 0;
+
+setInterval(() => {
+  nameElement.classList.add('flipping');
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % names.length; 
+    nameElement.textContent = names[currentIndex];
+    if (names[currentIndex] === 'Kalz') {
+      nameElement.classList.add('kalz');
+    } else {
+      nameElement.classList.remove('kalz');
+    }
+  }, 300);
+  setTimeout(() => {
+    nameElement.classList.remove('flipping');
+  }, 600);
+}, 4500);
+</script>
+</body>
+</html>
