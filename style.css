@@ -252,26 +252,45 @@ section {
 
 /* Project cards */
 .projects-container {
-  display: flex; /* Coloca los proyectos en una fila horizontal */
-  flex-wrap: wrap; /* Permite que los proyectos se ajusten en varias filas si no caben */
-  gap: 20px; /* Espaciado entre los proyectos */
-  justify-content: center; /* Centra los proyectos horizontalmente */
+  display: flex;
+  justify-content: center; /* Centra el proyecto horizontalmente */
+  padding: 20px; /* Espaciado alrededor del contenedor */
 }
 
 .project-card {
-  flex: 1 1 calc(25% - 20px); /* Cada proyecto ocupa el 25% del ancho menos el espacio del gap */
+  width: 80%; /* Ocupa el 80% del ancho de la pantalla */
+  max-width: 600px; /* Limita el ancho máximo del proyecto */
   background-color: #424242; /* Fondo gris */
   color: #ffffff; /* Texto blanco */
-  padding: 20px;
+  padding: 20px; /* Espaciado interno */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Asegura que el contenido no se salga del contenedor */
 }
 
 .project-card:hover {
   transform: translateY(-10px); /* Eleva el proyecto al pasar el cursor */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Añade una sombra más intensa */
+}
+
+.project-image {
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: auto; /* Mantén la proporción original de la imagen */
+  object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+  margin-bottom: 15px; /* Espaciado entre la imagen y el contenido */
+}
+
+.project-card h3 {
+  font-size: 1.8rem; /* Tamaño del título */
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1.2rem; /* Tamaño del texto */
+  line-height: 1.6; /* Mejora la legibilidad */
 }
 
 @media (max-width: 1024px) {
@@ -364,6 +383,16 @@ footer p {
   .about-right {
     width: 100%; /* Ocupan todo el ancho */
     text-align: center; /* Centra el texto */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-image {
+    max-height: 100px; /* Reduce la altura máxima en pantallas pequeñas */
+  }
+
+  .project-card {
+    max-width: 100%; /* Permite que las tarjetas ocupen todo el ancho disponible */
   }
 }
 
