@@ -6,38 +6,15 @@
   <title>Portfolio - Alejandro</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <!-- AOS libreria de animaciones -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    .tech-stack ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
-      justify-content: center; /* Centra los elementos horizontalmente */
-      gap: 20px; /* Espaciado entre los elementos */
-    }
-
-    .tech-stack li {
-      font-size: 1rem;
-      display: flex;
-      flex-direction: column; /* Coloca el icono encima del texto */
-      align-items: center; /* Centra el contenido */
-      gap: 10px; /* Espaciado entre el icono y el texto */
-    }
-
-    .tech-stack .icon {
-      width: 50px; /* Tamaño del icono */
-      height: auto; /* Mantén la proporción del icono */
-    }
-  </style>
+  <link rel="icon" href="Image/icon.png" type="image/png">
 </head>
 <body>
   <!-- Header -->
   <header class="hero" id="hero" data-aos="fade-down">
     <div class="hero-content">
       <h1>¡Hola! Soy <span id="name">Alejandro</span></h1>
-      <p>Prefiero picar código que piedra ⛏️💻</p>
+      <p>"Prefiero picar código que picar piedra ⛏️💻"</p>
       <section id="btn" data-aos="flip-down">
         <a href="#about" class="btn flip-btn">Scroll para ver más</a>
       </section>
@@ -61,24 +38,37 @@
   <!-- Sobre mi  -->
   <section class="about" id="about" data-aos="fade-up">
     <div class="about-container">
-      <!-- Columna izquierda: Sobre mí -->
       <div class="about-left">
         <h2>Sobre mí</h2>
-        <p>Estoy estudiando Desarrollo de Aplicaciones Multiplataforma y a la vez trabajo, pero en mis ratos libres me gusta sentarme a trastear y romper cosas, actualmente aprendiendo Java como main pero mientras tocando todos los palos posibles, me gustaría desarrollarme como full stack aunque también me interesa muchísimo la ciberseguridad.</p>
+        <p>Estoy estudiando Desarrollo de Aplicaciones Multiplataforma y a la vez trabajo, pero en mis ratos libres me gusta sentarme a trastear y romper cosas. Actualmente aprendiendo Java como main, pero tocando todos los palos posibles. Me gustaría desarrollarme como full stack aunque también me interesa muchísimo la ciberseguridad.</p>
       </div>
-
-      <!-- Columna derecha: Intereses-->
       <div class="about-right">
         <h2>Intereses</h2>
-        <ul>
-          <li>Videojuegos 🎮</li>
-          <li>Ciberseguridad 🔒</li>
-          <li>Desarrollo Full Stack 💻</li>
-          <li>Fotografía 📸</li>
-          <li>Lectura 📚</li>
+        <ul class="interests-list">
+          <li>
+            <span class="interest-icon">🔒</span>
+            <span class="interest-text">Ciberseguridad</span>
+          </li>
+          <li>
+            <span class="interest-icon">💻</span>
+            <span class="interest-text">Desarrollo Full Stack</span>
+          </li>
+          <li>
+            <span class="interest-icon">📚</span>
+            <span class="interest-text">Lectura</span>
+            <li>
+              <span class="interest-icon">🥊</span>
+              <span class="interest-text">KickBoxing</span>
+            </li>
+          <li>
+              <span class="interest-icon">🎮</span>
+              <span class="interest-text">Videojuegos</span>
+          </li>
+          </li>
         </ul>
       </div>
     </div>
+  </section>
 
     <!-- Frase -->
     <blockquote class="quote" data-aos="fade-up">
@@ -105,20 +95,39 @@
   <!-- Projects -->
   <section class="projects" id="projects" data-aos="fade-up">
     <h2>Mis Proyectos</h2>
-    <div class="project-card">
-      <h3>GestorGastos</h3>
-      <p>Descripción breve de mi primer proyecto.</p>
-      <a href="#">Ver Proyecto</a>
-    </div>
-    <div class="project-card">
-      <h3>Proyecto 2</h3>
-      <p>Descripción breve de mi segundo proyecto.</p>
-      <a href="#">Ver Proyecto</a>
+    <div class="projects-container">
+      <a href="https://github.com/KalzKiw/GestorGastos" target="_blank" class="project-link">
+        <div class="project-card">
+          <h3>GestorGastos</h3>
+          <p>Descripción breve del proyecto 1.</p>
+        </div>
+      </a>
+      <a href="https://github.com/tu_usuario/proyecto2" target="_blank" class="project-link">
+        <div class="project-card">
+          <h3>Proyecto 2</h3>
+          <p>Descripción breve del proyecto 2.</p>
+        </div>
+      </a>
+      <a href="https://github.com/tu_usuario/proyecto3" target="_blank" class="project-link">
+        <div class="project-card">
+          <h3>Proyecto 3</h3>
+          <p>Descripción breve del proyecto 3.</p>
+        </div>
+      </a>
+      <a href="https://github.com/tu_usuario/proyecto4" target="_blank" class="project-link">
+        <div class="project-card">
+          <h3>Proyecto 4</h3>
+          <p>Descripción breve del proyecto 4.</p>
+        </div>
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
+    <a href="#hero" class="footer-logo">
+      <img src="Image/icon.png"  class="icon">
+    </a>
     <p>© 2025 Alejandro Kalz. Todos los derechos reservados.</p>
   </footer>
 
@@ -194,7 +203,5 @@ document.querySelector('#btn a').addEventListener('click', function (e) {
   });
 })
 </script>
-
-
 </body>
 </html>
