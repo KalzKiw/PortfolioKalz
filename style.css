@@ -15,7 +15,7 @@ body {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+  overflow-x: hidden; 
 }
 
 h2 {
@@ -128,7 +128,7 @@ section {
   background-color: #424242; 
   color: #ffffff; 
   border-radius: 8px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .about-left {
@@ -244,16 +244,16 @@ section {
 }
 
 .tech-stack-container {
-  overflow: hidden; /* Oculta el contenido que se desborda */
-  white-space: nowrap; /* Evita que los elementos se envuelvan */
+  overflow: hidden; 
+  white-space: nowrap; 
   position: relative;
 }
 
 .tech-stack-container ul {
-  display: flex; /* Alinea los elementos en una fila */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 30px; /* Espaciado entre los elementos */
-  animation: none; /* Elimina cualquier animación */
+  display: flex; 
+  justify-content: center; 
+  gap: 30px; 
+  animation: none;
 }
 
 .tech-stack-container .icon {
@@ -263,23 +263,23 @@ section {
 
 @keyframes scroll-horizontal {
   0% {
-    transform: translateX(0); /* Comienza desde la posición inicial */
+    transform: translateX(0); 
   }
   100% {
-    transform: translateX(-50%); /* Desplaza la mitad del contenido (ya que está duplicado) */
+    transform: translateX(-50%); 
   }
 }
 
 @media (max-width: 768px) {
   .tech-stack-container {
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos móviles */
+    -webkit-overflow-scrolling: touch; 
   }
 
   .tech-stack-container ul {
-    display: flex; /* Mantén los elementos alineados en una fila */
-    justify-content: center; /* Centra los elementos */
-    gap: 30px; /* Espaciado entre los elementos */
-    animation: none; /* Asegúrate de que no haya animación */
+    display: flex; 
+    justify-content: center;
+    gap: 30px; 
+    animation: none;
   }
 }
 
